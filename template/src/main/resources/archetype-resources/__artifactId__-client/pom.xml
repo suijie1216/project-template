@@ -18,29 +18,11 @@
     </properties>
 
     <dependencies>
-        <!-- ======= -->
-        <!-- 模块依赖 -->
-        <!-- ======= -->
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${artifactId}-common</artifactId>
         </dependency>
-
-        <!-- ======= -->
-        <!-- 二方依赖 -->
-        <!-- ======= -->
-        <dependency>
-            <groupId>org.springframework.ext</groupId>
-            <artifactId>springframework-ext-client</artifactId>
-        </dependency>
-
-        <!-- ======= -->
-        <!-- 三方依赖 -->
-        <!-- ======= -->
-
-        <!-- ======= -->
-        <!-- 测试依赖 -->
-        <!-- ======= -->
 
     </dependencies>
 </project>

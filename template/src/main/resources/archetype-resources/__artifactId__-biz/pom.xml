@@ -15,25 +15,10 @@
 
 
     <dependencies>
-        <!-- ======= -->
-        <!-- 模块依赖 -->
-        <!-- ======= -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${artifactId}-domain</artifactId>
         </dependency>
-
-        <!-- ======= -->
-        <!-- 二方依赖 -->
-        <!-- ======= -->
-        <dependency>
-            <groupId>org.springframework.ext</groupId>
-            <artifactId>springframework-ext-biz</artifactId>
-        </dependency>
-
-        <!-- ======= -->
-        <!-- 三方依赖 -->
-        <!-- ======= -->
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
@@ -51,8 +36,5 @@
             <artifactId>spring-beans</artifactId>
         </dependency>
 
-        <!-- ======= -->
-        <!-- 测试依赖 -->
-        <!-- ======= -->
     </dependencies>
 </project>

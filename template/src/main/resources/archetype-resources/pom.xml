@@ -27,9 +27,7 @@
     </modules>
     <dependencyManagement>
         <dependencies>
-            <!-- ======= -->
-            <!-- 模块依赖 -->
-            <!-- ======= -->
+
             <dependency>
                 <groupId>${groupId}</groupId>
                 <artifactId>${artifactId}-api</artifactId>
@@ -61,42 +59,13 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- ======= -->
-            <!-- 二方依赖 -->
-            <!-- ======= -->
-            <dependency>
-                <groupId>org.springframework.ext</groupId>
-                <artifactId>springframework-ext-common</artifactId>
-                <version>1.0.3-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.ext</groupId>
-                <artifactId>springframework-ext-domain</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.ext</groupId>
-                <artifactId>springframework-ext-client</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.ext</groupId>
-                <artifactId>springframework-ext-biz</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-
-            <!-- ======= -->
-            <!-- 三方依赖 -->
-            <!-- ======= -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.16.8</version>
             </dependency>
 
-            <!-- ======= -->
-            <!-- 测试依赖 -->
-            <!-- ======= -->
+
         </dependencies>
     </dependencyManagement>
     <build>
