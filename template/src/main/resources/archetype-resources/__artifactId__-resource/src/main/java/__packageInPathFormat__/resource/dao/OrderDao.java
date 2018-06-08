@@ -7,7 +7,6 @@ import ${package}.domain.repository.OrderRepository;
 import ${package}.resource.entity.OrderEntity;
 import ${package}.resource.factory.OrderFactory;
 import ${package}.resource.mapper.OrderMapper;
-import org.springframework.ext.common.aspect.Call;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -37,7 +36,6 @@ public class OrderDao implements OrderRepository {
     }
 
     @Override
-    @Call
     public boolean enable(Order order) {
         // 领域对象转数据对象
         OrderEntity orderEntity = OrderFactory.asEntity(order);

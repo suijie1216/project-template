@@ -1,13 +1,11 @@
 package ${package}.api.web.controller;
 
-import ${package}.common.enums.StatusCode;
+import ${package}.module.response.StatusCode;
 
 import ${package}.api.web.reponse.TradeResponse;
 import ${package}.biz.flow.TradeFlow;
 import ${package}.biz.request.TradeRequest;
 import ${package}.biz.result.TradeCreateResult;
-import org.springframework.ext.common.aspect.Call;
-import org.springframework.ext.common.setting.Context;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +25,6 @@ public class TradeController {
 
     @PostMapping("/buy")
     @ResponseBody
-    @Call()
     public TradeResponse buy(@Valid @RequestBody TradeRequest trade, BindingResult bindingResult) {
         /** 处理参数验证错误 */
         if (bindingResult.hasErrors()) {
@@ -46,7 +43,6 @@ public class TradeController {
     }
 
     private void fillRequestIfNeed(TradeRequest trade) {
-        Long buyerId = Context.getThreadLocal("loginUserId");
-        trade.setBuyerId(buyerId);
+
     }
 }
