@@ -3,7 +3,6 @@
 pid=0
 JVM_ARGS=" -Xms3g -Xmx3g -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseCMSInitiatingOccupancyOnly -Xloggc:log/gc.log -XX:+PrintGCDetails"
 PACKAGE_NAME="${artifactId}-api.jar"
-BUILD_NAME="${PACKAGE_NAME}.build"
 
 JAVA_HOME="/usr/local/jdk1.8.0_65"
 
@@ -39,28 +38,26 @@ checkProfile(){
 }
 
 start(){
-    cp ${BUILD_NAME} ${PACKAGE_NAME}
     checkPid
     if [ "${pid}"x != "0"x ];then
       echo "please do not repeat "
       return 1
     fi
     checkJava
-       if [ "${pid}"x != "0"x ];then
-       echo "please do not repeat "
-          return 1
-       fi
+    if [ "${pid}"x != "0"x ];then
+    echo "please do not repeat "
+       return 1
+    fi
 
     echo "starting java process"
     checkProfile
     nohup ${JAVA_COMMAND} -jar ${JVM_ARGS} -Dspring.profiles.active=${PROFILE} ${PACKAGE_NAME}  >/dev/null 2>&1 &
     sleep 1s
-    healthCheck
     return $?
 }
 
 stop(){
-    checkPid
+   checkPid
    if [ "${pid}"x != "0"x ];then
       echo "server is running,kill process ${pid}"
       kill -9 "${pid}"
@@ -79,18 +76,7 @@ stop(){
    return 0
 }
 
-checkJava(){
-  v_pid=$(pgrep -f "${PACKAGE_NAME}" |head -1)
-  if [ "${v_pid}"x = x ];then
-    echo "java process is shutdown"
-    pid=0
-  else
-    echo "java process is running pid:${v_pid}"
-    echo "${v_pid}"> app.pid
-    pid=$((v_pid))
-  fi
-}
-
+#先检查pid文件
 checkPid(){
   if [ -f "app.pid" ];then
      v_pid=$(head -1 app.pid)
@@ -113,24 +99,17 @@ checkPid(){
   fi
 }
 
-healthCheck(){
-   echo "starting health check......"
-   sleep 1s
-   for((i=1;i<=60;i++))
-   do
-   result=$(curl -s --connect-timeout 1 -m 1 -X GET 'http://127.0.0.1:8888/health')
-   if [ "$?" = 0 -a "${result}"x = "{\"status\":\"UP\"}"x ];then
-     echo ""
-     echo "system start up success"
-     return 0
-     else
-   sleep 1s
-   echo -e " ${i}\c"
-   fi
-   done
-   echo ""
-   echo "system start failed"
-   exit 1
+#如果没有pid文件检查java进程
+checkJava(){
+  v_pid=$(pgrep -f "${PACKAGE_NAME}" |head -1)
+  if [ "${v_pid}"x = x ];then
+    echo "java process is shutdown"
+    pid=0
+  else
+    echo "java process is running pid:${v_pid}"
+    echo "${v_pid}"> app.pid
+    pid=$((v_pid))
+  fi
 }
 
 reload(){
@@ -139,8 +118,6 @@ reload(){
   start
   exit $?
 }
-
-
 
 case $1 in
     start)
@@ -152,10 +129,7 @@ case $1 in
     reload)
       reload
       ;;
-    healthCheck)
-      healthCheck
-      ;;
     *)
-     echo "arg start|stop|reload|healthCheck"
+     echo "arg start|stop|reload"
 esac
 exit $?
