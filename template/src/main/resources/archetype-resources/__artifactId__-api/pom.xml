@@ -14,9 +14,6 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <!-- ======= -->
-        <!-- 模块依赖 -->
-        <!-- ======= -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${artifactId}-resource</artifactId>
@@ -25,15 +22,6 @@
             <groupId>${groupId}</groupId>
             <artifactId>${artifactId}-biz</artifactId>
         </dependency>
-
-        <!-- ======= -->
-        <!-- 二方依赖 -->
-        <!-- ======= -->
-
-        <!-- ======= -->
-        <!-- 三方依赖 -->
-        <!-- ======= -->
-        <!-- spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -64,9 +52,7 @@
             <artifactId>retrofit</artifactId>
         </dependency>
 
-        <!-- ======= -->
         <!-- 测试依赖 -->
-        <!-- ======= -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>

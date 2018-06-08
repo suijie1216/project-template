@@ -14,21 +14,10 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <!-- ======= -->
-        <!-- 模块依赖 -->
-        <!-- ======= -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${artifactId}-domain</artifactId>
         </dependency>
-
-        <!-- ======= -->
-        <!-- 二方依赖 -->
-        <!-- ======= -->
-
-        <!-- ======= -->
-        <!-- 三方依赖 -->
-        <!-- ======= -->
 
         <!-- alibaba -->
         <dependency>
@@ -58,9 +47,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <!-- ======= -->
-        <!-- 测试依赖 -->
-        <!-- ======= -->
 
     </dependencies>
     <build>
