@@ -5,8 +5,7 @@ import ${package}.domain.model.Order;
 import ${package}.domain.model.PayOrder;
 
 /**
- * @author ouliyuan
- * @date 2017-12-28
+ * @author suijie
  */
 public interface OrderRepository {
     void createTradeOrder(Order order);

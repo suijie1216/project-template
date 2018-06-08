@@ -2,8 +2,6 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-    <!-- <classPathEntry
-             location="/Users/didi/dev/repo/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />-->
     <context id="promotion" targetRuntime="Mybatis3">
 
         <!-- defaultModelType="hierarchical" -->

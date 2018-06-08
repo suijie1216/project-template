@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *  Created by only on 2017/10/30.
+ * @author suijie
  */
 @Configuration
 @AutoConfigureAfter(MybatiesConfig.class)
@@ -15,7 +15,7 @@ public class MapperScannerConfig {
     public MapperScannerConfigurer buildMapperScannerConfigurer() {
         MapperScannerConfigurer configurer = new MapperScannerConfigurer();
         configurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        configurer.setBasePackage("com.xiaoju.automarket.energy.domain.mapper");
+        configurer.setBasePackage("org.springframework.litchi.mapper");
         return configurer;
     }
 }

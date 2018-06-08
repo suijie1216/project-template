@@ -3,8 +3,7 @@ package ${package}.resource.mapper;
 import ${package}.resource.entity.OrderEntity;
 
 /**
- * @author ouliyuan
- * @date 2017-12-28
+ * @author suijie
  */
 public interface OrderMapper {
     /**

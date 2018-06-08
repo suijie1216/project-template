@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.xiaoju.automarket</groupId>
-        <artifactId>automarket-parent</artifactId>
+        <groupId>org.springframework</groupId>
+        <artifactId>template-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

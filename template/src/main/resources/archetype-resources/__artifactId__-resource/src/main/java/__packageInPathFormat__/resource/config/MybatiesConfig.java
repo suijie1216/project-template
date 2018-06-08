@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
- *  Created by only on 2017/10/30.
+ * @author suijie
  */
 @Configuration
 @EnableTransactionManagement

@@ -11,10 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 /**
- * 交易流程
- *
- * @author ouliyuan
- * @date 2017-12-27
+ * @author suijie
  */
 @Component
 public class TradeFlow {

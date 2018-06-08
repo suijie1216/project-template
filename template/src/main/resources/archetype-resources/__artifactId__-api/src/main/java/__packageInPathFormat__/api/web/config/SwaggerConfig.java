@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Created by didi on 2017/6/30.
+ * @author suijie
  */
 @Configuration
 @EnableSwagger2
@@ -34,8 +34,8 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("能源供应服务API")
                 .description("提供能源供应业务层API")
-                .termsOfServiceUrl("http://home.didichuxing.com/")
-                .contact(new Contact("钱克金", "http://home.didichuxing.com/", "qiankejin@didichuxing.com"))
+                .termsOfServiceUrl("http://www.baidu.com/")
+                .contact(new Contact("suijie", "http://www.baidu.com/", "suijie1216@163.com"))
                 .version("1.0")
                 .build();
     }

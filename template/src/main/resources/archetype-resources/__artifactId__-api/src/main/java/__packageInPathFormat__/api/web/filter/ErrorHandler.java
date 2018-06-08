@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by only on 2017/7/10.
+ * @author suijie
  */
 @ControllerAdvice
 @ResponseBody

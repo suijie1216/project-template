@@ -14,8 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author ouliyuan
- * @date 2017-12-28
+ * @author suijie
  */
 @Repository
 public class ItemDal implements ItemRepository {

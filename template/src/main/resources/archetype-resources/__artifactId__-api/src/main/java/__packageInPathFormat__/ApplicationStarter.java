@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
- * Created by didi on 2017/6/30.
+ * @author suijie
  */
 @SpringBootApplication
 public class ApplicationStarter extends WebMvcConfigurerAdapter {
@@ -32,11 +32,6 @@ public class ApplicationStarter extends WebMvcConfigurerAdapter {
         //忽略空值
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-        //long以String表达
-        /*SimpleModule simpleModule = new SimpleModule();
-        simpleModule.addSerializer(Long.class, ToStringSerializer.instance);
-        simpleModule.addSerializer(Long.TYPE, ToStringSerializer.instance);
-        objectMapper.registerModule(simpleModule);*/
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(objectMapper);
         converters.add(converter);
     }

@@ -15,10 +15,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**
- * 交易控制器
- *
- * @author ouliyuan
- * @date 2017-12-27
+ * @author suijie
  */
 @RestController
 @RequestMapping("/api/trade")

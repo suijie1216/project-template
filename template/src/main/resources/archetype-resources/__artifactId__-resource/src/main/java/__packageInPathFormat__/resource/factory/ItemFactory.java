@@ -6,8 +6,7 @@ import ${package}.resource.entity.ItemEntity;
 import java.util.List;
 
 /**
- * @author ouliyuan
- * @date 2017-12-28
+ * @author suijie
  */
 public class ItemFactory {
     public static List<Item> asDomain(List<ItemEntity> itemList) {
