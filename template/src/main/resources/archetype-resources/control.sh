@@ -2,8 +2,7 @@
 
 pid=0
 JVM_ARGS=" -Xms3g -Xmx3g -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+UseCMSInitiatingOccupancyOnly -Xloggc:log/gc.log -XX:+PrintGCDetails"
-PACKAGE_NAME="${artifactId}-web.jar"
-BACK_NAME="${PACKAGE_NAME}.back"
+PACKAGE_NAME="${artifactId}-api.jar"
 BUILD_NAME="${PACKAGE_NAME}.build"
 
 JAVA_HOME="/usr/local/jdk1.8.0_65"
@@ -61,52 +60,23 @@ start(){
 }
 
 stop(){
-    cp ${PACKAGE_NAME} ${BACK_NAME}
-    apiShutdown=false
-    result=$(curl -s --connect-timeout 3 -m 3 -X POST 'http://127.0.0.1:8888/shutdown')
-    if [ "$?"x = "0"x -a "${result}"x = "{\"message\":\"Shutting down, bye...\"}"x ];then
-        echo "shutdown api call success, server return :${result}"
-        apiShutdown=true
-        for((i=1;i<60;i++))
-        do
-        checkPid
-        if [ "${pid}"x != "0"x ];then
-          echo "server ${pid} is running, waiting to shutdown"
-          sleep 1s
-          continue
-        else
-           checkJava
-           if [ "${pid}"x != "0"x ];then
-              echo "server ${pid} is running,waiting to shutdown "
-              sleep 1s
-              continue
-           else
-             echo "server is shutdown success"
-             return 0
-           fi
-
-        fi
-        done
-    else
-     echo "server shutdown interface is closed,check pid"
-       checkPid
-       if [ "${pid}"x != "0"x ];then
-          echo "server is running,kill process ${pid}"
-          kill -9 "${pid}"
-          rm -fr app.pid
-          return 0
-       fi
-       echo "pid not exist check java process"
-       checkJava
-       if [ "${pid}"x != "0"x ];then
-          echo "process is running,kill process ${pid}"
-          kill -9 "${pid}"
-          rm -fr app.pid
-          return 0
-       fi
-       echo "no process is running,nothing need stop"
-       return 0
-    fi
+    checkPid
+   if [ "${pid}"x != "0"x ];then
+      echo "server is running,kill process ${pid}"
+      kill -9 "${pid}"
+      rm -fr app.pid
+      return 0
+   fi
+   echo "pid not exist check java process"
+   checkJava
+   if [ "${pid}"x != "0"x ];then
+      echo "process is running,kill process ${pid}"
+      kill -9 "${pid}"
+      rm -fr app.pid
+      return 0
+   fi
+   echo "no process is running,nothing need stop"
+   return 0
 }
 
 checkJava(){
