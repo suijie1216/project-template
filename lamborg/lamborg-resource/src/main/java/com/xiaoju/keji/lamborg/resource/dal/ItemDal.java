@@ -1,10 +1,10 @@
-package ${package}.resource.dal;
+package com.xiaoju.keji.lamborg.resource.dal;
 
-import ${package}.domain.model.Item;
-import ${package}.domain.repository.ItemRepository;
-import ${package}.resource.call.ItemCall;
-import ${package}.resource.entity.ItemEntity;
-import ${package}.resource.transfer.ItemTransfer;
+import com.xiaoju.keji.lamborg.domain.model.Item;
+import com.xiaoju.keji.lamborg.domain.repository.ItemRepository;
+import com.xiaoju.keji.lamborg.resource.call.ItemCall;
+import com.xiaoju.keji.lamborg.resource.entity.ItemEntity;
+import com.xiaoju.keji.lamborg.resource.transfer.ItemTransfer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

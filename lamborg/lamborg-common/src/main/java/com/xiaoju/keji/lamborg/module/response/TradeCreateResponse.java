@@ -1,4 +1,5 @@
-package ${package}.module.response;
+package com.xiaoju.keji.lamborg.module.response;
+
 
 /**
  * @author suijie

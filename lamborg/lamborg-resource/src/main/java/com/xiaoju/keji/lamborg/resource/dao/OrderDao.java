@@ -1,12 +1,12 @@
-package ${package}.resource.dao;
+package com.xiaoju.keji.lamborg.resource.dao;
 
-import ${package}.domain.model.ItemOrder;
-import ${package}.domain.model.Order;
-import ${package}.domain.model.PayOrder;
-import ${package}.domain.repository.OrderRepository;
-import ${package}.resource.entity.OrderEntity;
-import ${package}.resource.transfer.OrderTransfer;
-import ${package}.resource.mapper.OrderMapper;
+import com.xiaoju.keji.lamborg.domain.model.ItemOrder;
+import com.xiaoju.keji.lamborg.domain.model.Order;
+import com.xiaoju.keji.lamborg.domain.model.PayOrder;
+import com.xiaoju.keji.lamborg.domain.repository.OrderRepository;
+import com.xiaoju.keji.lamborg.resource.entity.OrderEntity;
+import com.xiaoju.keji.lamborg.resource.transfer.OrderTransfer;
+import com.xiaoju.keji.lamborg.resource.mapper.OrderMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
