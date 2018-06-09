@@ -64,7 +64,7 @@
     </dependencies>
 
     <build>
-        <finalName>${artifactId}-web</finalName>
+        <finalName>${artifactId}-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
