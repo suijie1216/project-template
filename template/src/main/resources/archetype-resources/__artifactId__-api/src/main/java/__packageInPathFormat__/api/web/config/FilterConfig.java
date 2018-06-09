@@ -1,6 +1,6 @@
 package ${package}.api.web.config;
 
-import ${package}.api.web.filter.QPSFilter
+import ${package}.api.web.filter.QPSFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
