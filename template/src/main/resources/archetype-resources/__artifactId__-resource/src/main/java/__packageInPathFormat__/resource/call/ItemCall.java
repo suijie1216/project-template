@@ -8,7 +8,9 @@ import java.util.List;
 /**
  * @author suijie
  */
-@Repository
+@Host("item.url")
 public interface ItemCall {
+
+    @POST("api/item/get")
     List<ItemEntity> getItemListById(List<Long> itemIdList);
 }
