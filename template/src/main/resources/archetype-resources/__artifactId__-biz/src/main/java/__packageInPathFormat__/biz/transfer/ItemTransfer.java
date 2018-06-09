@@ -1,7 +1,7 @@
 package ${package}.biz.transfer;
 
 import ${package}.domain.model.Item;
-import ${package}.resource.entity.ItemEntity;
+import ${package}.module.dto.ItemDTO;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * @author suijie
  */
 public class ItemTransfer {
-    public static List<Item> transfer(List<ItemEntity> itemList) {
+    public static List<ItemDTO> transfer(List<Item> itemList) {
         return null;
     }
 }
