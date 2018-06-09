@@ -1,7 +1,7 @@
-package ${package}.resource.transfer;
+package com.suijie.haha.lambor.resource.factory;
 
-import ${package}.domain.model.Item;
-import ${package}.resource.entity.ItemEntity;
+import com.suijie.haha.lambor.domain.model.Item;
+import com.suijie.haha.lambor.resource.entity.ItemEntity;
 
 import java.util.List;
 

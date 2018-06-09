@@ -1,4 +1,4 @@
-package ${package}.resource.factory;
+package ${package}.resource.transfer;
 
 import ${package}.domain.model.Order;
 import ${package}.resource.entity.OrderEntity;
