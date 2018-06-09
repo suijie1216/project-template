@@ -1,4 +1,4 @@
-package ${package}.resource.factory;
+package ${package}.biz.transfer;
 
 import ${package}.domain.model.Item;
 import ${package}.resource.entity.ItemEntity;
