@@ -5,11 +5,12 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <target>System.out</target>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>WARN</level>
+            <level>INFO</level>
         </filter>
         <!-- encoder 默认配置为PatternLayoutEncoder -->
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5p %c{0}.%M # %X{traceId} - %m%n</pattern>
+            <pattern>[%level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread:%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
     <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
@@ -19,7 +20,8 @@
         </filter>
         <!-- encoder 默认配置为PatternLayoutEncoder -->
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5p %c{0}.%M # %X{traceId} - %m%n</pattern>
+            <pattern>[%level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread:%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
     <appender name="APP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -30,20 +32,22 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5p %c{0}.%M # %X{traceId} - %m%n</pattern>
+            <pattern>[%level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread:%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${root.log.path}/app.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${root.log.path}/app.log.%d{yyyyMMdd}</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
     </appender>
     <appender name="SPRING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${root.log.path}/spring.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${root.log.path}/spring.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <fileNamePattern>${root.log.path}/spring.log.%d{yyyyMMdd}</fileNamePattern>
         </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5p %c{0}.%M # %X{traceId} - %m%n</pattern>
+        <encoder>
+            <pattern>[%level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread:%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -52,20 +56,41 @@
         </filter>
         <file>${root.log.path}/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${root.log.path}/error.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <fileNamePattern>${root.log.path}/error.log.%d{yyyyMMdd}</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5p %c{0}.%M # %X{traceId} - %m%n</pattern>
+        <encoder>
+            <pattern>[%level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread:%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
+
+    <appender name="PROFILER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${root.log.path}/profiler.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${root.log.path}/lamborghini.%d{yyyyMMdd}.log.zip</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%level][%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}][%thread:%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
     <root level="${root.log.level}">
         <appender-ref ref="APP_FILE"/>
         <appender-ref ref="ERROR_FILE" />
+        <appender-ref ref="STDOUT"/>
     </root>
     <logger name="org.springframework" level="${root.log.level}" additivity="false">
         <appender-ref ref="SPRING_FILE"/>
         <appender-ref ref="ERROR_FILE" />
+        <appender-ref ref="STDOUT"/>
     </logger>
+
+    <logger name="trace-log" level="INFO" additivity="false">
+        <appender-ref ref="PROFILER_FILE"/>
+    </logger>
+
 
 </configuration>
