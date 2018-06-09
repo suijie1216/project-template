@@ -14,30 +14,28 @@ import java.sql.*;
 @Configuration
 public class DataSourceConfig {
     @Value("${db.url}")
-    private String promotionDBUrl;
+    private String dbUrl;
     @Value("${db.username}")
-    private String promotionDBUsername;
+    private String dbUserName;
     @Value("${db.password}")
-    private String promotionDBPassword;
+    private String dbPassword;
     @Value("${db.maxactive}")
-    private int promotionDBmaxActive;
+    private int dbmaxActive;
     @Value("${db.minidle}")
-    private int promotionDBminIdle;
+    private int dbminIdle;
 
     @Bean("dataSource")
     public DataSource buildDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(promotionDBUrl);
-        dataSource.setUsername(promotionDBUsername);
-        dataSource.setPassword(promotionDBPassword);
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(dbUserName);
+        dataSource.setPassword(dbPassword);
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-
-        dataSource.setInitialSize(promotionDBminIdle);
-        dataSource.setMaxActive(promotionDBmaxActive);
-        dataSource.setMinIdle(promotionDBminIdle);
+        dataSource.setMaxActive(dbmaxActive);
+        dataSource.setInitialSize(dbminIdle);
+        dataSource.setMinIdle(dbminIdle);
 
         dataSource.setTimeBetweenEvictionRunsMillis(30000);
-
         dataSource.setMinEvictableIdleTimeMillis(15000);
 
         dataSource.setValidationQuery("select 1");

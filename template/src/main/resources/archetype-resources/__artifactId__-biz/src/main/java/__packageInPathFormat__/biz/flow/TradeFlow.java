@@ -2,8 +2,8 @@ package ${package}.biz.flow;
 
 import ${package}.biz.action.OrderCreateAction;
 import ${package}.biz.action.PromotionCalculateAction;
-import ${package}.biz.request.TradeRequest;
-import ${package}.biz.result.TradeCreateResult;
+import ${package}.module.request.TradeRequest;
+import ${package}.module.response.TradeCreateResponse;
 import ${package}.domain.model.Order;
 import ${package}.domain.model.Promotion;
 import org.springframework.stereotype.Component;
@@ -28,7 +28,7 @@ public class TradeFlow {
      * @param trade 交易请求
      * @return 交易创建结果
      */
-    public TradeCreateResult doCreate(TradeRequest trade) {
+    public TradeCreateResponse doCreate(TradeRequest trade) {
         /** 计算订单价格 */
         Promotion promotion = promotionCalculateAction.execute(trade);
 
@@ -36,6 +36,6 @@ public class TradeFlow {
         Order order = orderCreateAction.execute(trade, promotion);
 
         // 结果封装
-        return TradeCreateResult.create(order, promotion);
+        return TradeCreateResponse.create(order, promotion);
     }
 }

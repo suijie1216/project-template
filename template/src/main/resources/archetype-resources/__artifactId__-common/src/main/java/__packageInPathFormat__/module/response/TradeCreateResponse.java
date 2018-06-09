@@ -5,8 +5,8 @@ import ${package}.domain.model.Promotion;
 /**
  * @author suijie
  */
-public class TradeCreateResult {
-    public static TradeCreateResult create(Order order, Promotion promotion) {
+public class TradeCreateResponse extends Response {
+    public static TradeCreateResponse create(Order order, Promotion promotion) {
         return null;
     }
 }

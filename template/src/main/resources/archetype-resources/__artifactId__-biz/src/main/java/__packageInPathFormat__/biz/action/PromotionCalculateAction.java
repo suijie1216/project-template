@@ -1,6 +1,6 @@
 package ${package}.biz.action;
 
-import ${package}.biz.request.TradeRequest;
+import ${package}.module.request.TradeRequest;
 import ${package}.domain.model.Item;
 import ${package}.domain.model.Promotion;
 import ${package}.domain.handler.ItemQueryHandler;

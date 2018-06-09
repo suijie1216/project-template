@@ -1,4 +1,4 @@
-package ${package}.biz.request;
+package ${package}.module.request;
 
 import lombok.Data;
 

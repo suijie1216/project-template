@@ -18,16 +18,10 @@
     </properties>
 
     <dependencies>
-        <!-- effective -->
+        <!-- common模块理论上不依赖任务包 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-        <!-- litchi -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-litchi</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

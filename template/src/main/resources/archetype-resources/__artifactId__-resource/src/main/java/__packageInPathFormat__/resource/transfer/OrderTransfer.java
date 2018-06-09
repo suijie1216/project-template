@@ -6,8 +6,8 @@ import ${package}.resource.entity.OrderEntity;
 /**
  * @author suijie
  */
-public class OrderFactory {
-    public static OrderEntity asEntity(Order order) {
+public class OrderTransfer {
+    public static OrderEntity transfer(Order order) {
         return null;
     }
 }

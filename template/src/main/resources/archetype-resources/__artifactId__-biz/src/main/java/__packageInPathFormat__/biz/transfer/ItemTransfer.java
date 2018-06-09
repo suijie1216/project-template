@@ -8,8 +8,8 @@ import java.util.List;
 /**
  * @author suijie
  */
-public class ItemFactory {
-    public static List<Item> asDomain(List<ItemEntity> itemList) {
+public class ItemTransfer {
+    public static List<Item> transfer(List<ItemEntity> itemList) {
         return null;
     }
 }

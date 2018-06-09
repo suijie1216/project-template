@@ -2,10 +2,9 @@ package ${package}.api.web.controller;
 
 import ${package}.module.response.StatusCode;
 
-import ${package}.api.web.reponse.TradeResponse;
 import ${package}.biz.flow.TradeFlow;
-import ${package}.biz.request.TradeRequest;
-import ${package}.biz.result.TradeCreateResult;
+import ${package}.module.request.TradeRequest;
+import ${package}.module.response.TradeCreateResponse;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +24,7 @@ public class TradeController {
 
     @PostMapping("/buy")
     @ResponseBody
-    public TradeResponse buy(@Valid @RequestBody TradeRequest trade, BindingResult bindingResult) {
+    public TradeCreateResponse buy(@Valid @RequestBody TradeRequest trade, BindingResult bindingResult) {
         /** 处理参数验证错误 */
         if (bindingResult.hasErrors()) {
             // TODO
@@ -36,7 +35,7 @@ public class TradeController {
         fillRequestIfNeed(trade);
 
         /** 交易创建 */
-        TradeCreateResult result = tradeFlow.doCreate(trade);
+        TradeCreateResponse result = tradeFlow.doCreate(trade);
 
         /** 输出转换 */
         return TradeResponse.valueOf(result);
