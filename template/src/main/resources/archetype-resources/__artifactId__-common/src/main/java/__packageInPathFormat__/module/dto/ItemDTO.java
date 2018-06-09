@@ -1,5 +1,5 @@
 package ${package}.module.dto;
 
-public class DemoDTO {
+public class ItemDTO {
 
 }

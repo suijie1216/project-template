@@ -1,7 +1,5 @@
 package ${package}.api.web.controller;
 
-import ${package}.module.response.StatusCode;
-
 import ${package}.biz.flow.TradeFlow;
 import ${package}.module.request.TradeRequest;
 import ${package}.module.response.TradeCreateResponse;
@@ -35,10 +33,8 @@ public class TradeController {
         fillRequestIfNeed(trade);
 
         /** 交易创建 */
-        TradeCreateResponse result = tradeFlow.doCreate(trade);
+        return tradeFlow.doCreate(trade);
 
-        /** 输出转换 */
-        return TradeResponse.valueOf(result);
     }
 
     private void fillRequestIfNeed(TradeRequest trade) {

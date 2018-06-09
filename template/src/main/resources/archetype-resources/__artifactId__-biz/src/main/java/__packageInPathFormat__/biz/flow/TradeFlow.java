@@ -36,6 +36,6 @@ public class TradeFlow {
         Order order = orderCreateAction.execute(trade, promotion);
 
         // 结果封装
-        return TradeCreateResponse.create(order, promotion);
+        return new TradeCreateResponse();
     }
 }
