@@ -1,8 +1,9 @@
-package ${package}.resource.call;
+package org.springframework.kshfdjs.resource.call;
 
-import ${package}.resource.entity.ItemEntity;
-import retrofit2.http.POST;
+import org.springframework.kshfdjs.resource.entity.ItemEntity;
 import org.springframework.litchi.http.Host;
+import retrofit2.http.POST;
+
 import java.util.List;
 
 /**

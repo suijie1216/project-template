@@ -1,9 +1,9 @@
-package ${package}.resource.config;
+package org.springframework.kshfdjs.resource.config;
 
-import org.springframework.litchi.http.HttpServiceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ${package}.resource.call.ItemCall;
+import org.springframework.kshfdjs.resource.call.ItemCall;
+import org.springframework.litchi.http.HttpServiceBuilder;
 
 /**
  * @author suijie
